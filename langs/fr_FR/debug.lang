@@ -1,0 +1,60 @@
+# DEBUG MODULE - fr_FR
+#
+# Copyright (C) 2025 Idayat Noufou  <contact@dev2a.pro>
+
+#
+# Generic
+#
+Debug = Debug
+Module507000Name = Debug
+DebugDescription = Module de débuggage pour dolibarr permettant d'utiliser laradumps
+Module507000Desc = Debug
+
+#
+# Setup
+#
+Setup = Configuration
+Settings = Paramètres
+Changelog = Changelog
+About = À propos
+Option = Option
+Value = Valeur
+NumberingModels = Modèles de numérotation
+DocumentModels = Modèles de document
+DocModelAzurDescription = Modèle PDF Azur. Modèle de document complet (modèle recommandé)
+DocModelCrabeDescription = Modèle PDF Crabe. Modèle de document complet (logo...)
+NoSetupAvailable = Pas de configuration nécessaire.
+
+#
+# About
+#
+DevelopedBy = Développé par
+ForAnyQuestions = Pour toute question ou commentaire, envoyez un mail sur
+FindMyModules = Retrouvez nos autres modules sur
+ReportBug = Signaler un bug
+TechnicalInformations = Informations techniques
+DolibarrVersion = Version Dolibarr
+ModuleVersion = Version du module
+PHPVersion = Version PHP
+DatabaseVersion = Version de la base de données
+WebServerVersion = Version du serveur web
+ReportBugNotice = Les informations techniques ci-dessous devraient être fournies dans votre rapport de bug, en plus du fichier %s pour augmenter les chances de corriger le bug rapidement.
+EnableLogModule = Le module Journaux de débogage n'est pas activé %s
+ClickToEnable = Cliquez pour activer
+
+#
+# Changelog
+#
+Version = Version
+PublicationDate = Date de publication
+Details = Détails
+NoChangelogAvailable = Aucun changelog n'est disponible.
+
+DebugHello = Salut j'utilise Dolibarr debug
+DebugConfigError = Il y a un problème lors de la configuration du module
+DebugHelloRed = Rouge
+DebugHelloGreen = vert
+DebugHelloBlue = Bleu
+DebugHelloWarning = Alerte
+DebugHelloDanger = Danger
+DebugHelloSuccess = Succes

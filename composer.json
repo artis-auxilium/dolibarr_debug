@@ -1,0 +1,19 @@
+{
+    "name": "dev2a/debug",
+    "type": "project",
+    "license": "GPLv3",
+    "autoload": {
+        "psr-4": {
+            "Dev2a\\Debug\\": "./class/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Idayat NOUFOU",
+            "email": "nia@dev2a.pro"
+        }
+    ],
+    "require-dev": {
+        "laradumps/laradumps-core": "^2.0"
+    }
+}

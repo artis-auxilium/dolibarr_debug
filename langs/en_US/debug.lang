@@ -1,0 +1,60 @@
+# DEBUG MODULE - en_US
+#
+# Copyright (C) 2025 Idayat Noufou  <contact@dev2a.pro>
+
+#
+# Generic
+#
+Debug = Debug
+Module507000Name = Debug
+DebugDescription = Debugging module for dolibarr to use laradumps
+Module507000Desc = Debug
+
+#
+# Setup
+#
+Setup = Setup
+Settings = Settings
+Changelog = Changelog
+About = About
+Option = Option
+Value = Value
+NumberingModels = Numbering models
+DocumentModels = Document models
+DocModelAzurDescription = PDF template Azur. A complete document model (recommended template)
+DocModelCrabeDescription = PDF template Crabe. A complete document model (logo...)
+NoSetupAvailable = No setup available.
+
+#
+# About
+#
+DevelopedBy = Developed by
+ForAnyQuestions = For any questions or feedback, please send an e-mail to
+FindMyModules = Find our other modules on
+ReportBug = Report a bug
+TechnicalInformations = Technical informations
+DolibarrVersion = Dolibarr version
+ModuleVersion = Module version
+PHPVersion = PHP version
+DatabaseVersion = Database version
+WebServerVersion = Web server version
+ReportBugNotice = The technical informations below should be provided in your bug report, in addition of file %s to increase the chance of fixing the bug quickly.
+EnableLogModule = Debug Logs module is not enabled %s
+ClickToEnable = Click to enable
+
+#
+# Changelog
+#
+Version = Version
+PublicationDate = Publication Date
+Details = Details
+NoChangelogAvailable = No changelog available.
+
+DebugHello = Hello i'm using Dolibarr debug
+DebugConfigError = There is a problem configuring the module
+DebugHelloRed = Red
+DebugHelloGreen = Green
+DebugHelloBlue = Blue
+DebugHelloWarning = Warning
+DebugHelloDanger = Danger
+DebugHelloSuccess = Success
