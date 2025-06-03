@@ -20,7 +20,6 @@ if (!function_exists("ds")) {
 die($langs->trans("DebugConfigError"));
 }
 
-ds($langs->trans('DebugHello'))->coffee();
 ds($langs->trans('DebugHelloRed'))->red();
 ds($langs->trans('DebugHelloGreen'))->green();
 ds($langs->trans('DebugHelloBlue'))->blue();
