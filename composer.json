@@ -11,6 +11,10 @@
         {
             "name": "Idayat NOUFOU",
             "email": "nia@dev2a.pro"
+        },
+        {
+            "name": "Dev2a",
+            "email": "contact@dev2a.pro"
         }
     ],
     "require-dev": {

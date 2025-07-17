@@ -28,4 +28,5 @@ ds($langs->trans('DebugHelloWarning'))->warning();
 ds($langs->trans('DebugHelloDanger'))->danger();
 ds($langs->trans('DebugHelloSuccess'))->success();
 
-print "Voir <a href='https://laradumps.dev/debug/usage.html'>Usage Laradumps</a> pour plus d'informations sur l'utilisation de Laradumps.\n";
+print "Voir <a href='https://laradumps.dev/debug/usage.html'>Usage Laradumps</a> ";
+print "pour plus d'informations sur l'utilisation de Laradumps.\n";
