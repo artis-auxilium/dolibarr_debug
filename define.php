@@ -24,3 +24,7 @@ if (!defined('DEBUG_URL_ROOT')) {
 if (!defined('DEBUG_PATH_ROOT')) {
     define('DEBUG_PATH_ROOT', dol_buildpath('/debug/', 0));
 }
+
+if (!defined('DEBUG_VERSION')) {
+    define('DEBUG_VERSION', '1.0.0');
+}

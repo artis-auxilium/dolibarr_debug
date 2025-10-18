@@ -48,3 +48,10 @@ function print_debug_admin_tabs($active = 'Setup')
 
     print_tabs($tabs, 'Debug', 'debug.png@debug', -1);
 }
+
+if (!function_exists('appBasePath')) {
+    function appBasePath(): string
+    {
+        return DOL_DOCUMENT_ROOT;
+    }
+}

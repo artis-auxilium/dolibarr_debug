@@ -17,7 +17,7 @@
             "email": "contact@dev2a.pro"
         }
     ],
-    "require-dev": {
-        "laradumps/laradumps": "^4.0"
+    "require": {
+        "laradumps/laradumps-core": "^3.0"
     }
 }

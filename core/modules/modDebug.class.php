@@ -29,7 +29,8 @@
 include_once DOL_DOCUMENT_ROOT.'/core/modules/DolibarrModules.class.php';
 
 // Load module lib
-dol_include_once('debug/lib/module.lib.php');
+include_once dirname(__DIR__, 2). '/lib/module.lib.php';
+include_once dirname(__DIR__, 2). '/define.php';
 
 /**
  * Class to describe and enable module
@@ -54,16 +55,11 @@ class modDebug extends DolibarrModules
         $this->name            = preg_replace('/^mod/i', '', get_class($this));
         $this->description     = 'DebugDescription';
         $this->picto           = 'debug.png@debug';
-        $this->version         = '1.0.0';
+        $this->version         = DEBUG_VERSION;
         $this->const_name      = get_constant_name($this);
 
         // Module parts (css, js, ...)
-        $this->module_parts    = array(
-            'css'   => array(),
-            'js'    => array(),
-            'hooks' => array('main'),
-            //'triggers' => 1,
-        );
+        $this->module_parts = ['syslog' => 1,];
 
         // Config page
         $this->config_page_url = array('setup.php@debug');
@@ -75,19 +71,6 @@ class modDebug extends DolibarrModules
         $this->requiredby            = array();
         $this->conflictwith          = array();
         $this->langfiles             = array('debug@debug');
-
-        // Menus
-        // $top_menu = 'debug';
-        // add_top_menu($this, $top_menu, 'Debug', '/debug/index.php');
-        // add_left_menu($this, $top_menu, 'debugmenu', 'Index', '/debug/index.php');
-        // add_left_submenu($this, $top_menu, 'debugmenu', 'debugnew', 'New', '/debug/card.php?action=create');
-        // add_left_submenu($this, $top_menu, 'debugmenu', 'debuglist', 'List', '/debug/list.php');
-
-        // Permissions
-        // add_permission($this, 'read', 'ReadPermission', 'r');
-        // add_permission($this, 'create', 'CreatePermission', 'c');
-        // add_permission($this, 'modify', 'ModifyPermission', 'm');
-        // add_permission($this, 'delete', 'DeletePermission', 'd');
     }
 
     /**
@@ -101,9 +84,6 @@ class modDebug extends DolibarrModules
      */
     public function init($options = '')
     {
-        // Load module tables
-        $result = $this->_load_tables('/debug/sql/');
-
         return $this->_init(array(), $options);
     }
 
