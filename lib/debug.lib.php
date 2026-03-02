@@ -55,3 +55,12 @@ if (!function_exists('appBasePath')) {
         return DOL_DOCUMENT_ROOT;
     }
 }
+if (!function_exists('debug_log')) {
+    function debug_log(...$args)
+    {
+        $backtrace = debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT);
+        $trace = array_shift($backtrace);
+        $args[] = $trace['file'] . ' (' . $trace['line'] . ')';
+        dol_syslog(print_r([...$args], true));
+    }
+}
