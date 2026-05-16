@@ -58,9 +58,9 @@ if (!function_exists('appBasePath')) {
 if (!function_exists('debug_log')) {
     function debug_log(...$args)
     {
-        $backtrace = debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT);
+        $backtrace = debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT, 2);
         $trace = array_shift($backtrace);
-        $args[] = $trace['file'] . ' (' . $trace['line'] . ')';
+        $args[] = ($trace['file'] ?? 'Unknown file')  . ' (' . ($trace['line'] ?? 'Unknown line') . ')';
         dol_syslog(print_r([...$args], true));
     }
 }
