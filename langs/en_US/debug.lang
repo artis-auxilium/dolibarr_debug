@@ -58,3 +58,4 @@ DebugHelloBlue = Blue
 DebugHelloWarning = Warning
 DebugHelloDanger = Danger
 DebugHelloSuccess = Success
+EndOFPage=Page rendered successfully
