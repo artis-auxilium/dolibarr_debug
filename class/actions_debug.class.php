@@ -3,6 +3,7 @@
 
 class ActionsDebug
 {
+     private $waitListAction = ['list'];
     /**
      * @var DoliDB
      */
@@ -27,4 +28,18 @@ class ActionsDebug
                 color : var(--colortextbackhmenu);font-size: 1.2rem">'.$langs->trans('EndOFPage').'</div>';
         return 0;
     }
+
+    public function llxFooter($parameters, &$object, &$action)
+    {
+        if (in_array($action, $this->waitListAction)) {
+            return 0;
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            setEventMessage('POST not redirected', 'warnings');
+        }
+
+        return 0;
+    }
+
 }

@@ -61,11 +61,8 @@ class modDebug extends DolibarrModules
         // Module parts (css, js, ...)
         $this->module_parts = [
             'syslog' => 1,
-            'hooks' => [
-                'main',
-                ]
-            ,
-            ];
+            'hooks' => ['main'],
+        ];
 
         // Config page
         $this->config_page_url = array('setup.php@debug');
