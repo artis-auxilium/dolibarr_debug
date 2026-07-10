@@ -9,7 +9,7 @@ class DebugSysLogHandler extends LogHandler implements LogHandlerInterface
         return 'debug';
     }
 
-    public function export($content)
+    public function export($content, $suffixinfilename = '')
     {
         // TODO: Implement export() method.
     }

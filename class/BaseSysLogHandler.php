@@ -2,11 +2,11 @@
 
 trait BaseSysLogHandler
 {
-    public $code = 'debug';
     public $active = true;
 
     public function __construct()
     {
+        $this->code = 'debug';
         include_once dirname(__DIR__) . '/lib/debug.lib.php';
         if (defined('DEBUG_LOADED_FILES')) {
             register_shutdown_function(function () {
