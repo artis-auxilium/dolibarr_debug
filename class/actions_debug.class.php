@@ -7,16 +7,7 @@ class ActionsDebug
     /**
      * @var DoliDB
      */
-    private $db;
     public $resprints;
-
-    /**
-     * @param DoliDB $db
-     */
-    public function __construct($db)
-    {
-        $this->db = $db;
-    }
 
 
 
