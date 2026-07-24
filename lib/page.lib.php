@@ -228,7 +228,7 @@ if (! function_exists('print_tabs'))
                             2 => $tab_name
                         );
 
-                        if ($tab['active']) {
+                        if (isset($tab['active'])) {
                             $active_link = $tab_name;
                         }
                     }
