@@ -14,6 +14,12 @@ if (!$res) {
     die("Main include failed");
 }
 
+dol_include_once('debug/lib/debug.lib.php');
+
+if (!isDebugActive()) {
+    accessforbidden();
+}
+
 $langs->loadLangs(['debug@debug']);
 
 if (!function_exists("ds")) {

@@ -67,6 +67,14 @@ class modDebug extends DolibarrModules
         // Config page
         $this->config_page_url = array('setup.php@debug');
 
+        // Permissions
+        add_permission(
+            $this,
+            'use',
+            'DebugPermUse',
+            'r',
+            0
+        );
         // Dependencies
         $this->need_dolibarr_version = array(3, 8);
         $this->phpmin                = array(4, 0);

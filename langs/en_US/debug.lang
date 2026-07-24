@@ -59,3 +59,4 @@ DebugHelloWarning = Warning
 DebugHelloDanger = Danger
 DebugHelloSuccess = Success
 DebugEndOFPage=Page rendered successfully
+DebugPermUse=Use debug tools (hooks, ds(), example page)

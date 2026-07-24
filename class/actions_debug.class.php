@@ -1,5 +1,5 @@
 <?php
-
+require_once dirname(__DIR__).'/lib/debug.lib.php';
 
 class ActionsDebug
 {
@@ -13,6 +13,8 @@ class ActionsDebug
 
     public function beforeBodyClose($parameters, &$object, &$action)
     {
+        if (!isDebugActive()) return 0;
+
         global $langs;
         $langs->load('debug@debug');
         print '<style>.debug_page_ok {position: fixed; top: 0; left:0;padding: 5px;background-color: var(--colorbackhmenu1);
@@ -22,6 +24,8 @@ class ActionsDebug
 
     public function llxFooter($parameters, &$object, &$action)
     {
+        if (!isDebugActive()) return 0;
+
         if (in_array($action, $this->waitListAction)) {
             return 0;
         }

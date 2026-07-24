@@ -27,7 +27,7 @@
 
 /**
  * Print admin page(s) tabs
- * 
+ *
  * @param  string $active Active tab title
  */
 function print_debug_admin_tabs($active = 'Setup')
@@ -62,5 +62,17 @@ if (!function_exists('debug_log')) {
         $trace = array_shift($backtrace);
         $args[] = ($trace['file'] ?? 'Unknown file')  . ' (' . ($trace['line'] ?? 'Unknown line') . ')';
         dol_syslog(print_r([...$args], true));
+    }
+}
+
+if (!function_exists('isDebugActive')) {
+    function isDebugActive() {
+        global $dolibarr_main_prod, $user, $conf;
+        if (empty($conf->debug->enabled)) return false;
+        if (!empty($dolibarr_main_prod)) {
+            if (!isset($user->rights->debug->use) || !$user->rights->debug->use)
+            return false;
+        }
+        return true;
     }
 }

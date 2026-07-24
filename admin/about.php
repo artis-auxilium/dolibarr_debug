@@ -32,7 +32,6 @@ if (false === (@include_once '../../main.inc.php')) { // From htdocs directory
 // Load page & debug lib
 dol_include_once('debug/lib/page.lib.php');
 dol_include_once('debug/lib/debug.lib.php');
-dol_include_once('debug/lib/dolistore.lib.php');
 
 // Load module class
 dol_include_once('debug/core/modules/modDebug.class.php');

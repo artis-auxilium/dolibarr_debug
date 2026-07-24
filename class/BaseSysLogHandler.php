@@ -8,6 +8,11 @@ trait BaseSysLogHandler
     {
         $this->code = 'debug';
         include_once dirname(__DIR__) . '/lib/debug.lib.php';
+        if (!isDebugActive()) {
+            $this->active = false;
+            return;
+        }
+
         if (defined('DEBUG_LOADED_FILES')) {
             register_shutdown_function(function () {
                 debug_log(get_included_files());
