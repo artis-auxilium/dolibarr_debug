@@ -60,3 +60,14 @@ DebugHelloDanger = Danger
 DebugHelloSuccess = Success
 DebugEndOFPage=Page rendered successfully
 DebugPermUse=Use debug tools (hooks, ds(), example page)
+DebugPermAdmin=Access debug admin pages
+
+#
+# Options
+#
+Options = Options
+DebugPageOkPosition = Debug page OK badge position
+BottomRight = Bottom Right
+BottomLeft = Bottom Left
+TopRight = Top Right
+TopLeft = Top Left

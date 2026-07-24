@@ -60,3 +60,14 @@ DebugHelloDanger = Danger
 DebugHelloSuccess = Succes
 DebugEndOFPage=Page rendue correctement
 DebugPermUse=Utiliser les outils de débogage (hooks, ds(), page d'exemple)
+DebugPermAdmin=Accéder aux pages d'administration du débogage
+
+#
+# Options
+#
+Options = Options
+DebugPageOkPosition = Position du badge de fin de page
+BottomRight = En bas à droite
+BottomLeft = En bas à gauche
+TopRight = En haut à droite
+TopLeft = En haut à gauche
