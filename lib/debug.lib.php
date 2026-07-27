@@ -34,8 +34,6 @@ function print_debug_admin_tabs($active = 'Setup')
 {
     $tabs = array(
         array('title' => 'Setup', 'url' => 'debug/admin/setup.php?mainmenu=home'),
-        array('title' => 'Options', 'url' => 'debug/admin/options.php?mainmenu=home'),
-        array('title' => 'Syslog', 'url' => 'debug/admin/syslog.php?mainmenu=home'),
         array('title' => 'Changelog', 'url' => 'debug/admin/changelog.php?mainmenu=home'),
         array('title' => 'About', 'url' => 'debug/admin/about.php?mainmenu=home')
     );

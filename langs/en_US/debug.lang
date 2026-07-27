@@ -41,6 +41,7 @@ WebServerVersion = Web server version
 ReportBugNotice = The technical informations below should be provided in your bug report, in addition of file %s to increase the chance of fixing the bug quickly.
 EnableLogModule = Debug Logs module is not enabled %s
 ClickToEnable = Click to enable
+DebugSyslogNotActivate=Module not configured in <a href="%s">%s</a>
 
 #
 # Changelog

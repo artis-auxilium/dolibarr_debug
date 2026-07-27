@@ -55,21 +55,22 @@ print_header('Setup', array('admin', 'debug@debug'));
 
 print_subtitle('Setup', 'title_setup.png', 'link:modules_list');
 
-print_debug_admin_tabs('Setup');
+print_debug_admin_tabs();
 
-print_trans('NoSetupAvailable');
+print_subtitle('Settings');
 
-// print_subtitle('Settings');
 
-// print_options(array(
-//     array('name' => 'MY_TEXT', 'type' => 'text', 'desc' => 'Text'),
-//     array('name' => 'MY_NUMBER', 'type' => 'number', 'desc' => 'Number'),
-//     array('name' => 'MY_SELECT', 'type' => 'select', 'desc' => 'Select', 'values' => array('Choice 1', 'Choice 2')),
-//     array('name' => 'MY_MULTI_SELECT', 'type' => 'multiselect', 'desc' => 'Multi Select', 'values' => array('1' => 'Choice 1', '2' => 'Choice 2')),
-//     array('name' => 'MY_COLOR', 'type' => 'color', 'desc' => 'Color'),
-//     array('name' => 'MY_DATE', 'type' => 'date', 'desc' => 'Date'),
-//     array('name' => 'MY_SWITCH', 'type' => 'switch', 'desc' => 'Switch'),
-//     array('name' => 'MY_RANGE', 'type' => 'range', 'desc' => 'Range', 'min' => 0, 'max' => 10)
-// ));
+if (!in_array('mod_syslog_debug', array_keys($conf->loghandlers))) {
+    $url = dol_buildpath('/admin/syslog.php', 2);
+    print '<div class="warning">' . $langs->trans('DebugSyslogNotActivate', $url, $langs->trans('SyslogSetup')) . '</div>';
+}
 
+print_options(array(
+    array('name' => 'DEBUG_PAGE_OK_POSITION', 'type' => 'select', 'desc' => 'DebugPageOkPosition', 'values' => array(
+        'bottom-right' => 'BottomRight',
+        'bottom-left' => 'BottomLeft',
+        'top-right' => 'TopRight',
+        'top-left' => 'TopLeft'
+    )),
+));
 print_footer(true);
