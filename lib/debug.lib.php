@@ -58,9 +58,15 @@ if (!function_exists('appBasePath')) {
 if (!function_exists('debug_log')) {
     function debug_log(...$args)
     {
-        $backtrace = debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT, 2);
-        $trace = array_shift($backtrace);
-        $args[] = ($trace['file'] ?? 'Unknown file')  . ' (' . ($trace['line'] ?? 'Unknown line') . ')';
+        $backtrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 8);
+        $count = min(3, count($backtrace));
+        for ($i = 0; $i < $count; $i++) {
+            $trace = array_shift($backtrace);
+            $args[] = ($trace['file'] ?? 'Unknown file') . ' (' . ($trace['line'] ?? 'Unknown line') . ')';
+        }
+        if (PHP_SAPI === 'cli' || PHP_SAPI === 'phpdbg') {
+            echo print_r($args, true) . PHP_EOL;
+        }
         dol_syslog(print_r([...$args], true));
     }
 }
