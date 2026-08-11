@@ -72,3 +72,16 @@ BottomRight = Bottom Right
 BottomLeft = Bottom Left
 TopRight = Top Right
 TopLeft = Top Left
+
+#
+# Logs viewer
+#
+DebugLogViewer = Logs
+DebugLogRefresh = Refresh
+DebugLogClose = Close
+DebugLogLoading = Loading logs...
+DebugLogScrollHint = Scroll up to load older logs
+DebugLogNotConfigured = Log file not configured (SYSLOG_FILE constant is empty)
+DebugLogFileNotReadable = Log file not found or not readable: %s
+DebugLogAccessDenied = Access denied
+DebugLogNetworkError = Error while loading logs

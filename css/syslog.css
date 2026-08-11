@@ -1,0 +1,144 @@
+/**
+ * Copyright (C) 2025 Idayat Noufou  <contact@dev2a.pro>
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
+
+/* Log viewer badge */
+#debug-page-ok {
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Log viewer dialog (native HTML <dialog>) */
+.debug-log-dialog {
+    width: 85%;
+    max-width: 1100px;
+    height: 75%;
+    max-height: 85vh;
+    padding: 0;
+    border: 1px solid #bbbbbb;
+    border-radius: 6px;
+    background-color: var(--colorbackground, #ffffff);
+    color: var(--colortext, #222222);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+}
+
+.debug-log-dialog[open] {
+    display: flex;
+    flex-direction: column;
+}
+
+.debug-log-dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.debug-log-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 14px;
+    background-color: var(--colorbackhmenu1, #f5f5f5);
+    border-bottom: 1px solid #cccccc;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.debug-log-file {
+    font-weight: normal;
+    font-size: 0.75rem;
+    color: #888888;
+    font-family: monospace;
+    word-break: break-all;
+}
+
+.debug-log-actions {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.debug-log-loading {
+    padding: 6px 14px;
+    background-color: #fff3cd;
+    color: #856404;
+    font-size: 0.8rem;
+    border-bottom: 1px solid #cccccc;
+}
+
+.debug-log-body {
+    flex: 1;
+    overflow-y: auto;
+    font-family: monospace;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    background-color: var(--colorbackground, #ffffff);
+}
+
+.debug-log-line {
+    padding: 1px 10px;
+    white-space: pre-wrap;
+    word-break: break-all;
+    border-left: 3px solid transparent;
+}
+
+.debug-log-line:hover {
+    background-color: var(--colorbackgroundhover, #f0f0f0);
+}
+
+.debug-log-emerg,
+.debug-log-alert,
+.debug-log-crit,
+.debug-log-err {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-left-color: #dc3545;
+}
+
+.debug-log-warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border-left-color: #ffc107;
+}
+
+.debug-log-notice {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border-left-color: #17a2b8;
+}
+
+.debug-log-info {
+    color: #155724;
+    border-left-color: #28a745;
+}
+
+.debug-log-debug {
+    color: #6c757d;
+    border-left-color: #adb5bd;
+}
+
+.debug-log-footer {
+    padding: 6px 14px;
+    background-color: var(--colorbackhmenu1, #f5f5f5);
+    border-top: 1px solid #cccccc;
+    font-size: 0.75rem;
+    color: #888888;
+    text-align: center;
+}
+
+.debug-log-footer.hidden {
+    display: none;
+}

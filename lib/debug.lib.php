@@ -82,3 +82,115 @@ if (!function_exists('isDebugActive')) {
         return true;
     }
 }
+
+if (!function_exists('debug_get_log_file')) {
+    /**
+     * Return the absolute path of the syslog file.
+     *
+     * @return string Path to the log file, or '' if SYSLOG_FILE is not set
+     */
+    function debug_get_log_file() {
+        $file = trim(getDolGlobalString('SYSLOG_FILE'));
+        if (empty($file)) {
+            return '';
+        }
+        return str_replace('DOL_DATA_ROOT', DOL_DATA_ROOT, $file);
+    }
+}
+
+if (!function_exists('debug_log_level')) {
+    /**
+     * Detect the severity level of a log line.
+     *
+     * @param  string $line Log line
+     * @return string       Lowercase level or 'default'
+     */
+    function debug_log_level($line) {
+        $levels = array('EMERG', 'ALERT', 'CRIT', 'ERR', 'WARNING', 'NOTICE', 'INFO', 'DEBUG');
+        $header = substr($line, 0, 60);
+        foreach ($levels as $level) {
+            if (preg_match('/\b'.$level.'\b/', $header)) {
+                return strtolower($level);
+            }
+        }
+        return 'default';
+    }
+}
+
+if (!function_exists('debug_read_log_block')) {
+    /**
+     * Read a block of the last lines of a log file, reading backwards.
+     *
+     * @param  string   $file       Log file path
+     * @param  int      $count      Maximum number of lines to return
+     * @param  int|null $end_offset Byte offset where to stop reading (start of a line). null = end of file
+     * @return array    Array with keys 'lines', 'start_offset', 'has_more', 'filesize'
+     */
+    function debug_read_log_block($file, $count = 300, $end_offset = null) {
+        clearstatcache(true, $file);
+        $filesize = @filesize($file);
+        if ($filesize === false || $filesize == 0) {
+            return array('lines' => array(), 'start_offset' => 0, 'has_more' => false, 'filesize' => (int)$filesize);
+        }
+
+        if ($end_offset === null || !is_numeric($end_offset) || $end_offset > $filesize) {
+            $end_offset = $filesize;
+        }
+        $end_offset = max(0, (int)$end_offset);
+
+        if ($end_offset <= 0) {
+            return array('lines' => array(), 'start_offset' => 0, 'has_more' => false, 'filesize' => $filesize);
+        }
+
+        $fp = @fopen($file, 'rb');
+        if (!$fp) {
+            return array('lines' => array(), 'start_offset' => 0, 'has_more' => false, 'filesize' => $filesize);
+        }
+
+        $count = max(1, (int)$count);
+        $buffer = '';
+        $pos = $end_offset;
+        $chunk = 8192;
+
+        while ($pos > 0) {
+            $read_len = min($chunk, $pos);
+            $pos -= $read_len;
+            fseek($fp, $pos);
+            $data = fread($fp, $read_len);
+            if ($data === false || $data === '') {
+                break;
+            }
+            $buffer = $data.$buffer;
+            $line_count = substr_count($buffer, "\n");
+            if (substr($buffer, -1) !== "\n") {
+                $line_count++;
+            }
+            if ($line_count >= $count) {
+                break;
+            }
+        }
+        fclose($fp);
+
+        $lines = explode("\n", $buffer);
+        if (count($lines) > 1 && $lines[count($lines) - 1] === '') {
+            array_pop($lines);
+        }
+        $total = count($lines);
+        $start_index = max(0, $total - $count);
+        $result = array_slice($lines, $start_index);
+
+        $dropped = array_slice($lines, 0, $start_index);
+        $dropped_len = 0;
+        foreach ($dropped as $line) {
+            $dropped_len += strlen($line) + 1;
+        }
+        $start_offset = $pos + $dropped_len;
+
+        return array(
+            'lines' => $result,
+            'start_offset' => $start_offset,
+            'has_more' => ($start_offset > 0),
+            'filesize' => $filesize
+        );
+    }
+}

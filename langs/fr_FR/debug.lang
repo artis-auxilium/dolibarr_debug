@@ -72,3 +72,16 @@ BottomRight = En bas à droite
 BottomLeft = En bas à gauche
 TopRight = En haut à droite
 TopLeft = En haut à gauche
+
+#
+# Logs viewer
+#
+DebugLogViewer = Journaux
+DebugLogRefresh = Actualiser
+DebugLogClose = Fermer
+DebugLogLoading = Chargement des journaux...
+DebugLogScrollHint = Faites défiler vers le haut pour charger les journaux plus anciens
+DebugLogNotConfigured = Fichier de journalisation non configuré (constante SYSLOG_FILE vide)
+DebugLogFileNotReadable = Fichier de journalisation introuvable ou illisible : %s
+DebugLogAccessDenied = Accès refusé
+DebugLogNetworkError = Erreur lors du chargement des journaux
