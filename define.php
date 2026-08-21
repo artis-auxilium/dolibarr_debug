@@ -26,5 +26,5 @@ if (!defined('DEBUG_PATH_ROOT')) {
 }
 
 if (!defined('DEBUG_VERSION')) {
-    define('DEBUG_VERSION', '1.0.4');
+    define('DEBUG_VERSION', '1.0.5');
 }
